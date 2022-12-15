@@ -21,13 +21,14 @@ const resp = await fetch("https://jsonplaceholder.typicode.com/users");
 const users = await resp.json();
 const bioCardsHTML = users.map(createBioCard).join("");
 
-root.classList.add(
-  "container",
-  "mx-auto",
-  "items-center",
-  "grid",
-  "grid-cols-3",
-  "gap-4"
-);
+root.classList.add("flex", "flex-col", "gap-y-4", "items-center");
 
-root.innerHTML = bioCardsHTML;
+root.innerHTML = `
+<div>
+<label for="search" class="sr-only">Search</label>
+<input type="search" id="search" placeholder="🔍" />
+</div>
+<main class="container mx-auto items-center grid grid-cols-3 gap-4">
+  ${bioCardsHTML}
+</main
+`;
