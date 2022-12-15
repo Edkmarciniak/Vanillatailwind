@@ -1,6 +1,5 @@
 // Initial const
 const root = document.querySelector("#root");
-const search = document.queryselector("input");
 
 // Function declarations/expressions
 function createBioCard(user) {
@@ -18,7 +17,7 @@ function createBioCard(user) {
 }
 
 function filterByName(searchLetters, listOfUsers) {
-  return listOfUsers.filter(() => {});
+  return listOfUsers.filter((user) => user.name.includes(searchLetters));
 }
 
 // Business logic
@@ -26,14 +25,21 @@ const resp = await fetch("https://jsonplaceholder.typicode.com/users");
 const users = await resp.json();
 const bioCardsHTML = users.map(createBioCard).join("");
 
-root.classList.add("flex", "flex-col", "gap-y-4", "items-center");
+root.classList.add("flex", "flex-col", "gap-y-8", "items-center");
 
 root.innerHTML = `
 <div>
 <label for="search" class="sr-only">Search</label>
 <input type="search" id="search" placeholder="🔍" />
 </div>
-<main class="container mx-auto items-center grid grid-cols-3 gap-4">
+<main class="items-center grid grid-cols-3 gap-4">
   ${bioCardsHTML}
 </main
 `;
+
+// ⚠️ 'input' doesn't exist until we update the 'root' 'innerHTML'
+const search = document.querySelector("input");
+
+search.addEventListener("keydown", () => {
+  console.log("hello");
+});
