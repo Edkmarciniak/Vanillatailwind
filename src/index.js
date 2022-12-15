@@ -1,5 +1,6 @@
 // Initial const
 const root = document.querySelector("#root");
+const search = document.queryselector("input");
 
 // Function declarations/expressions
 function createBioCard(user) {
@@ -14,6 +15,10 @@ function createBioCard(user) {
     <q class="italic">Centralized empowering task-force</q>
 </section>
   `;
+}
+
+function filterByName(searchLetters, listOfUsers) {
+  return listOfUsers.filter(() => {});
 }
 
 // Business logic
