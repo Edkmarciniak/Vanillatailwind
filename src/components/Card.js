@@ -1,2 +1,2 @@
-export default function Card() {}
-return "<p>Hi,I'm the card component</p>";
+export default function Card(name) {
+return `<p>Hi,I'm the card component and my name is ${name</p>`;

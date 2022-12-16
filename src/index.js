@@ -1,11 +1,11 @@
-import card from "./components/Card";
-import card from "./components/Main";
-import card from "./components/Search";
+import Card from "./components/Card";
+import Main from "./components/Main";
+import Search from "./components/Search";
 
-const root = documents.getElementById("root");
+const root = document.getElementById("root");
 
 root.innerHTML = `
   ${Main()}
   ${Card()}
   ${Search()}
-  `;
+`;
