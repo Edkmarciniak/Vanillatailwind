@@ -63,14 +63,11 @@ const main = document.querySelector("main");
 const search = document.querySelector("input");
 
 search.addEventListener(
-  "keydown",
+  "input",
 
   // Browser API models the event as an Event object
   (event) => {
-    updateLetters(event);
-
-    const filteredUsers = filterByName(users, letters);
-
+    const filteredUsers = filterByName(users, event.target.value);
     renderCardsInMain(filteredUsers);
   }
 );
