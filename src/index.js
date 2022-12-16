@@ -26,6 +26,10 @@ function filterByName(listOfUsers, searchLetters) {
   );
 }
 
+function renderCardsInMain(currentUsers) {
+  main.innerHTML = currentUsers.map(createBioCard).join("");
+}
+
 // Business logic
 const resp = await fetch("https://jsonplaceholder.typicode.com/users");
 const users = await resp.json();
@@ -47,6 +51,8 @@ root.innerHTML = `
 </main
 `;
 
+const main = document.querySelector("main");
+
 // ⚠️ 'input' doesn't exist until we update the 'root' 'innerHTML'
 const search = document.querySelector("input");
 
@@ -59,8 +65,9 @@ search.addEventListener(
     letters +=
       // We can access information about the event such as what key was pressed
       event.key;
+
     const filteredUsers = filterByName(users, letters);
 
-    console.log(filteredUsers);
+    renderCardsInMain(filteredUsers);
   }
 );
